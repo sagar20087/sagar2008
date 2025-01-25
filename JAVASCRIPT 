@@ -1,0 +1,44 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+
+// Set up the email transport configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'your-email@gmail.com',  // Use your email here
+        pass: 'your-email-password'     // Use your email password here
+    }
+});
+
+// Handle the payment submission
+app.post('/sendPaymentDetails', (req, res) => {
+    const { upiId, utrCode } = req.body;
+
+    // Email content
+    const mailOptions = {
+        from: 'your-email@gmail.com',  // Use your email here
+        to: 'boyh59810@gmail.com',
+        subject: 'Payment Details Submitted',
+        text: `UPI ID: ${upiId}\nUTR Code: ${utrCode}`
+    };
+
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            return res.json({ success: false, message: "Failed to send email" });
+        }
+        console.log('Email sent: ' + info.response);
+        res.json({ success: true, message: 'Payment details sent successfully' });
+    });
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});

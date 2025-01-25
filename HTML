@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SR Coin Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header without Deposit Option -->
+    <header>
+        <div class="logo">
+            <img src="sr-coin-logo.png" alt="SR Coin Logo" id="srCoinLogo">
+            <h1>SR Coin Platform</h1>
+        </div>
+        <nav>
+            <a href="#user">User Area</a> |
+            <a href="#admin">Admin Area</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- User Section -->
+        <section id="user">
+            <h2>Buy SR Coin</h2>
+            <p>Price per SR Coin: ₹4</p>
+            <div id="srCoinInfo">
+                <p>Total SR Coins Available: <span id="totalSRCoins">0</span></p>
+            </div>
+            <form id="paymentForm">
+                <input type="number" id="coins" placeholder="Enter number of coins" required>
+                <button type="submit">Buy SR Coin</button>
+            </form>
+
+            <!-- Deposit Section with QR Code -->
+            <div id="depositSection">
+                <h3>Buy SR Coin</h3>
+                <img src="https://photos.app.goo.gl/7UhBck442nppoaeC7" alt="QR Code" id="qrCode">
+                <p>Scan the QR to pay or use UPI ID: <strong>sheshraogadge32@oksbi</strong></p>
+                <!-- Payment Code Display -->
+                <div id="paymentCodeSection" style="display: none;">
+                    <p>Your Payment Verification Code: <span id="paymentCode"></span></p>
+                </div>
+            </div>
+
+            <div id="paymentStatus"></div>
+        </section>
+
+        <!-- Admin Section -->
+        <section id="admin" style="display: none;">
+            <h2>Admin Area</h2>
+            <form id="adminLoginForm">
+                <input type="text" id="adminUsername" placeholder="Username" required>
+                <input type="password" id="adminPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div id="adminPanel" style="display: none;">
+                <h3>Approve Payments</h3>
+                <div id="paymentRequests"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SR Coin Platform | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SR Coin Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to SR Coin Platform</h1>
+    </header>
+
+    <section id="paymentSection">
+        <!-- UPI ID and UTR Code input form -->
+        <div>
+            <label for="upiId">Enter UPI ID:</label>
+            <input type="text" id="upiId" placeholder="sheshraogadge32@oksbi" required><br><br>
+
+            <label for="utrCode">Enter UTR Code:</label>
+            <input type="text" id="utrCode" placeholder="Enter UTR Code" required><br><br>
+
+            <button onclick="processPayment()">Submit Payment</button>
+        </div>
+    </section>
+
+    <!-- Safety Disclaimer at the bottom -->
+    <footer>
+        <p>This app is completely safe, but if you uninstall the app, your account will be permanently lost and will never be recoverable.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Service Options</h1>
+        <form id="customerServiceForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="issue">Describe your issue:</label>
+            <textarea id="issue" name="issue" rows="4" required></textarea>
+            
+            <label for="serviceOption">Select a Service Option:</label>
+            <select id="serviceOption" name="serviceOption" required>
+                <option value="generalInquiry">General Inquiry</option>
+                <option value="technicalSupport">Technical Support</option>
+                <option value="billingIssue">Billing Issue</option>
+                <option value="productReturn">Product Return</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
